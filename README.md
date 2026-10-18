@@ -1,43 +1,89 @@
 <div align="center">
 
-# 👋 Привет, я Awaynos
+# Awaynos
 
-**Разработчик-любитель**, который любит превращать рутину в автоматизацию.
+**Разработчик прикладных инструментов для Windows и Telegram.**
 
-Создаю полезные тулзы, которые упрощают работу за ПК — и делают
-управление чуть комфортнее.
+Python · JavaScript · Desktop-утилиты · Автоматизация
+
+<img src="https://skillicons.dev/icons?i=py,js,ts,html,css,qt,electron,git,github,vscode,windows" height="40" alt="Стек" />
+
+</div>
 
 ---
 
-### 🛠️ Чем я занимаюсь
+## Профиль
 
-- 🖥️ **Автоматизация ПК** — скрипты и утилиты, которые убирают повторяющуюся рутину
-- 🎮 **Тулзы для игр** — оверлеи и вспомогательные инструменты, которые помогают играть удобнее
-- ✨ **Мелкие полезные вещи** — то, что просто решает конкретную проблему
+| | |
+|---|---|
+| **Направления** | Утилиты для Windows · инструменты для Telegram · игровые оверлеи |
+| **Основной стек** | Python (PySide6, Telethon) · JavaScript / Electron · TypeScript |
+| **Платформа** | Windows |
+| **Подход** | Прикладные инструменты под конкретную задачу: портативные, без лишних зависимостей |
+| **Лицензии** | Открытый исходный код (MIT, PolyForm Noncommercial) |
 
-### 💻 Языки и инструменты
+---
 
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000)
-![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat&logo=node.js&logoColor=fff)
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=fff)
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=fff)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=fff)
-![Git](https://img.shields.io/badge/-Git-F05032?style=flat&logo=git&logoColor=fff)
-![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat&logo=github&logoColor=fff)
-![Windows](https://img.shields.io/badge/-Windows-0078D6?style=flat&logo=windows&logoColor=fff)
-![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=flat&logo=visual-studio-code&logoColor=fff)
+## Опубликованные проекты
 
-### 📌 Сейчас в работе
+### QTranslate Remake
 
-[![eft-map-overlay](https://github-readme-stats.vercel.app/api/pin/?username=Awaynos&repo=eft-map-overlay&theme=github_dark&hide_border=true)](https://github.com/Awaynos/eft-map-overlay)
+**Переводчик для Windows в духе QTranslate 6.10** — переписан на Python с собственным интерфейсом.
 
-> Оверлей для карт в Escape From Tarkov. Делает ориентирование на карте быстрее и удобнее.
+`Python 3.11` · `PySide6 / Qt 6` · `Alpha 0.1.0`
 
-### ❤️ Поддержать
+- Глобальные горячие клавиши: `Ctrl+Q` — перевод выделенного текста, `Ctrl+1` — замена текста переводом прямо на месте, `Ctrl+E` — озвучка, `Ctrl+D` — словарь
+- Несколько сервисов перевода одновременно: Google, Yandex, Reverso, MyMemory, LibreTranslate — без API-ключей
+- Перевод документов: TXT, SRT, VTT, DOCX, PDF — с сохранением таймингов и структуры
+- Собственный интерфейс без системной рамки: 4 темы, локализация ru/en, история, работа в трее
+- Свой CSV-словарь (глоссарий, аббревиатуры) — данные не покидают машину
 
-Разработка и поддержка проектов занимает время — буду благодарен за поддержку 🫡
+[**Репозиторий**](https://github.com/Awaynos/QTranslate-R) · [**Релизы**](https://github.com/Awaynos/QTranslate-R/releases)
 
-> **Внимание:** отправляй перевод **только в указанной сети** — перевод в другой сети может быть потерян безвозвратно.
+### eft-map-overlay
+
+**Прозрачный интерактивный оверлей карты eft.su поверх Escape from Tarkov** — карта всегда под рукой, ориентирование быстрее.
+
+`JavaScript` · `Electron` · `Windows`
+
+- Не читает память игры и ничего не инжектит — легальный внешний оверлей, безопасный для BattlEye
+- Горячие клавиши: переключение кликов игра ⇄ карта, показать/скрыть, прозрачность, быстрая смена карты
+- Сквозные клики: карта видна, но прицел и стрельба не блокируются
+- Автообновление с GitHub, запоминание настроек (карта, прозрачность, положение окна)
+- 12 карт: Завод, Таможня, Лес, Маяк, Берег, Резерв, Развязка, Улицы Таркова, Лаборатория, Эпицентр, Лабиринт, Ледокол
+
+[**Репозиторий**](https://github.com/Awaynos/eft-map-overlay) · [**Релизы**](https://github.com/Awaynos/eft-map-overlay/releases)
+
+---
+
+## Статистика
+
+<div align="center">
+
+<img height="165" src="https://github-readme-stats-fast.vercel.app/api?username=Awaynos&theme=bear&show_icons=true&hide_border=true&count_private=true&locale=ru" alt="Статистика GitHub" />
+<img height="165" src="https://github-readme-stats-fast.vercel.app/api/top-langs?username=Awaynos&layout=compact&theme=bear&hide_border=true&locale=ru" alt="Языки" />
+
+<br>
+
+<img src="https://streak-stats.demolab.com?user=Awaynos&theme=bear&hide_border=true&locale=ru" alt="Серия коммитов" />
+
+</div>
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Awaynos/Awaynos/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Awaynos/Awaynos/output/github-contribution-grid-snake.svg" />
+    <img alt="График активности" src="https://raw.githubusercontent.com/Awaynos/Awaynos/output/github-contribution-grid-snake.svg" />
+  </picture>
+</div>
+
+---
+
+## Поддержать разработку
+
+Разработка и поддержка проектов занимает время — буду благодарен за поддержку. Поддержка полностью необязательна: можно помочь и без денег — сообщить о баге, предложить идею или просто поставить звезду проекту.
+
+> **Важно:** отправляйте перевод **только в указанной сети** — перевод в другой сети может быть потерян безвозвратно.
 
 | Монета | Сеть | Адрес |
 |---|---|---|
@@ -48,13 +94,7 @@
 
 ---
 
-### 📊 Статистика
+## Контакты
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=Awaynos&show_icons=true&theme=github_dark&hide_border=true&count_private=true)
-![Top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Awaynos&layout=compact&theme=github_dark&hide_border=true)
-
----
-
-*Люблю код, который экономит время. Если нашли баг или есть идея — открывайте Issue или Pull Request, всегда рад обратной связи.* 🚀
-
-</div>
+- GitHub — [@Awaynos](https://github.com/Awaynos)
+- Баги, идеи и pull request'ы — через Issues в соответствующих репозиториях
