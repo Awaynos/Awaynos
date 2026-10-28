@@ -74,12 +74,12 @@ Python · JavaScript · Desktop-утилиты · Автоматизация
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats-fast.vercel.app/api?username=Awaynos&theme=bear&show_icons=true&hide_border=true&count_private=true&locale=ru" alt="Статистика GitHub" />
-<img height="165" src="https://github-readme-stats-fast.vercel.app/api/top-langs?username=Awaynos&layout=compact&theme=bear&hide_border=true&locale=ru" alt="Языки" />
+<img height="165" src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/profile-summary-card-output/github_dark/3-stats.svg" alt="Статистика GitHub" />
+<img height="165" src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/profile-summary-card-output/github_dark/1-repos-per-language.svg" alt="Языки" />
 
 <br>
 
-<img src="https://streak-stats.demolab.com?user=Awaynos&theme=bear&hide_border=true&locale=ru" alt="Серия коммитов" />
+<img src="https://streak-stats.demolab.com?user=Awaynos&theme=github-dark&hide_border=true&locale=ru" alt="Серия коммитов" />
 
 </div>
 
