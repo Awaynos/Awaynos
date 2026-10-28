@@ -74,8 +74,12 @@ Python · JavaScript · Desktop-утилиты · Автоматизация
 
 <div align="center">
 
-<img height="165" src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/profile-summary-card-output/github_dark/3-stats.svg" alt="Статистика GitHub" />
-<img height="165" src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/profile-summary-card-output/github_dark/1-repos-per-language.svg" alt="Языки" />
+<img src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/profile-summary-card-output/github_dark/0-profile-details.svg" alt="Профиль GitHub" />
+
+<br>
+
+<img height="190" src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/profile-summary-card-output/github_dark/3-stats.svg" alt="Статистика GitHub" />
+<img height="190" src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/profile-summary-card-output/github_dark/1-repos-per-language.svg" alt="Языки" />
 
 <br>
 
