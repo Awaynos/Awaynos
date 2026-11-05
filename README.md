@@ -7,6 +7,14 @@
 Python · JavaScript · Desktop-утилиты · Автоматизация
 
 <img src="https://skillicons.dev/icons?i=py,js,ts,html,css,qt,electron,git,github,vscode,windows" height="40" alt="Стек" />
+&nbsp;
+<img src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/assets/icons/qml.svg" height="40" alt="QML" />
+&nbsp;
+<img src="https://skillicons.dev/icons?i=arch" height="40" alt="Arch Linux" />
+&nbsp;
+<img src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/assets/icons/quickshell.svg" height="40" alt="Quickshell" />
+&nbsp;
+<img src="https://skillicons.dev/icons?i=cpp" height="40" alt="C++" />
 
 </div>
 
