@@ -118,6 +118,6 @@ Python · JavaScript · Desktop-утилиты · Автоматизация
 
 - GitHub — [@Awaynos](https://github.com/Awaynos)
 - Telegram-канал — [@awadeveloper](https://t.me/awadeveloper)
-- Чат для обсуждений — [t.me/+c646yqHZzftmYTky](https://t.me/+c646yqHZzftmYTky)
+- Чат для обсуждений — [t.me/awadeveloperchat](https://t.me/awadeveloperchat)
 - Портфолио — [awaynos.github.io/Awaynos](https://awaynos.github.io/Awaynos/)
 - Баги, идеи и pull request'ы — через Issues в соответствующих репозиториях

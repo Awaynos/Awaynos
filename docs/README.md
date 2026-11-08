@@ -2,7 +2,7 @@
 
 Одностраничный сайт-портфолио разработчика утилит для Windows: тёмная тема, акцентный мятный цвет, адаптив, интерактивный терминал, подробный разбор стека и плавные анимации.
 
-**Сайт:** [awaynos.github.io/Awaynos](https://awaynos.github.io/Awaynos/) · **Telegram:** [канал](https://t.me/awadeveloper) · [чат](https://t.me/+c646yqHZzftmYTky)
+**Сайт:** [awaynos.github.io/Awaynos](https://awaynos.github.io/Awaynos/) · **Telegram:** [канал](https://t.me/awadeveloper) · [чат](https://t.me/awadeveloperchat)
 
 ## Структура
 
@@ -80,7 +80,7 @@ python -m http.server 8000
 - Сайт: [awaynos.github.io/Awaynos](https://awaynos.github.io/Awaynos/)
 - GitHub: [github.com/Awaynos](https://github.com/Awaynos)
 - Telegram-канал: [@awadeveloper](https://t.me/awadeveloper)
-- Чат для обсуждений: [t.me/+c646yqHZzftmYTky](https://t.me/+c646yqHZzftmYTky)
+- Чат для обсуждений: [t.me/awadeveloperchat](https://t.me/awadeveloperchat)
 - **SEO** — `<title>`, `meta description`, Open Graph в `<head>`.
 
 ## Деплой на GitHub Pages
