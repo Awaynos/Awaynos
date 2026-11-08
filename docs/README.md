@@ -2,6 +2,8 @@
 
 Одностраничный сайт-портфолио разработчика утилит для Windows: тёмная тема, акцентный мятный цвет, адаптив, интерактивный терминал, подробный разбор стека и плавные анимации.
 
+**Сайт:** [awaynos.github.io/Awaynos](https://awaynos.github.io/Awaynos/) · **Telegram:** [канал](https://t.me/awadeveloper) · [чат](https://t.me/+c646yqHZzftmYTky)
+
 ## Структура
 
 ```
@@ -71,7 +73,14 @@ python -m http.server 8000
 
 - **Цвета, радиусы, шрифты** — CSS-переменные в `:root` в начале `<style>`.
 - **Тексты** — hero, «Подход», «Навыки», «Обо мне», «Контакты» — прямо в разметке.
-- **Ссылки** — GitHub и контакты в шапке, hero, блоке «Обо мне» и контактах.
+- **Ссылки** — GitHub в шапке, hero и контактах; Telegram-канал и чат — в контактах.
+
+## Контакты
+
+- Сайт: [awaynos.github.io/Awaynos](https://awaynos.github.io/Awaynos/)
+- GitHub: [github.com/Awaynos](https://github.com/Awaynos)
+- Telegram-канал: [@awadeveloper](https://t.me/awadeveloper)
+- Чат для обсуждений: [t.me/+c646yqHZzftmYTky](https://t.me/+c646yqHZzftmYTky)
 - **SEO** — `<title>`, `meta description`, Open Graph в `<head>`.
 
 ## Деплой на GitHub Pages

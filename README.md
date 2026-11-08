@@ -6,6 +6,8 @@
 
 Python · JavaScript · Desktop-утилиты · Автоматизация
 
+**Сайт-портфолио:** [awaynos.github.io/Awaynos](https://awaynos.github.io/Awaynos/)
+
 <img src="https://skillicons.dev/icons?i=py,js,ts,html,css,qt,electron,git,github,vscode,windows" height="40" alt="Стек" />
 &nbsp;
 <img src="https://raw.githubusercontent.com/Awaynos/Awaynos/main/assets/icons/qml.svg" height="40" alt="QML" />
@@ -115,4 +117,7 @@ Python · JavaScript · Desktop-утилиты · Автоматизация
 ## Контакты
 
 - GitHub — [@Awaynos](https://github.com/Awaynos)
+- Telegram-канал — [@awadeveloper](https://t.me/awadeveloper)
+- Чат для обсуждений — [t.me/+c646yqHZzftmYTky](https://t.me/+c646yqHZzftmYTky)
+- Портфолио — [awaynos.github.io/Awaynos](https://awaynos.github.io/Awaynos/)
 - Баги, идеи и pull request'ы — через Issues в соответствующих репозиториях
