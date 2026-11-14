@@ -90,7 +90,7 @@ Python · JavaScript · Desktop-утилиты · Автоматизация
 
 <br>
 
-<img src="https://streak-stats.demolab.com?user=Awaynos&theme=bear&hide_border=true&locale=ru" alt="Серия коммитов" />
+<img src="https://streak-stats.demolab.com?user=Awaynos&theme=bear&hide_border=true&locale=ru&card_width=540" alt="Серия коммитов" />
 
 </div>
 
