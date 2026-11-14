@@ -47,6 +47,7 @@ async function gql(query, variables) {
 const PROFILE_QUERY = `
 query($login: String!) {
   user(login: $login) {
+    id
     login
     followers { totalCount }
     issues(first: 1) { totalCount }
@@ -63,10 +64,9 @@ query($login: String!) {
       totalCount
       nodes {
         name
+        nameWithOwner
         stargazerCount
-        languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
-          edges { size node { name color } }
-        }
+        primaryLanguage { name color }
       }
     }
   }
@@ -96,19 +96,50 @@ async function allTimeCommits(contributionYears) {
   );
 }
 
-// Reproduce github-readme-stats' language weighting: bytes per language over
-// all owned, non-fork repositories. Counted after, so a language in several
-// repositories adds up.
-function languageSizes(repositories) {
-  const languages = {};
-  for (const repository of repositories) {
-    for (const edge of repository.languages.edges) {
-      const { name, color } = edge.node;
-      languages[name] ??= { name, color, size: 0, count: 0 };
-      languages[name].size += edge.size;
-      languages[name].count += 1;
-    }
+// Top languages are counted by authored commits, not by file size: a single
+// config repository with generated QML files (ii-config, ~31 MB) otherwise
+// outweighs every source repository and reports QML as 86% of the profile.
+//
+// Each repository is attributed to its primary language, which is the same
+// coarse split GitHub's own "most commit language" card uses. One aliased
+// GraphQL request covers every repository.
+async function languageCommits(user) {
+  const repositories = user.repositories.nodes.filter(
+    (repository) => repository.primaryLanguage,
+  );
+  if (repositories.length === 0) {
+    return {};
   }
+
+  const aliases = repositories
+    .map((repository, index) => {
+      const [owner, name] = repository.nameWithOwner.split("/");
+      return (
+        `r${index}: repository(owner: ${JSON.stringify(owner)}, ` +
+        `name: ${JSON.stringify(name)}) { ` +
+        `defaultBranchRef { target { ... on Commit { ` +
+        `history(author: {id: $uid}) { totalCount } } } } }`
+      );
+    })
+    .join("\n");
+
+  const data = await gql(
+    `query($uid: ID!) { ${aliases} }`,
+    { uid: user.id },
+  );
+
+  const languages = {};
+  repositories.forEach((repository, index) => {
+    const { name, color } = repository.primaryLanguage;
+    const total =
+      data?.[`r${index}`]?.defaultBranchRef?.target?.history?.totalCount ?? 0;
+    if (total === 0) {
+      return;
+    }
+    languages[name] ??= { name, color, size: 0, count: 0 };
+    languages[name].size += total;
+    languages[name].count += 1;
+  });
   return languages;
 }
 
@@ -169,11 +200,11 @@ for (const [label, short] of SHORT_LABELS) {
   statsCard = statsCard.replaceAll(label, short);
 }
 
-const languagesCard = renderTopLanguages(languageSizes(repositories), {
+const languagesCard = renderTopLanguages(await languageCommits(user), {
   theme: "bear",
   hide_border: true,
   locale: "ru",
-  custom_title: "Топ языков",
+  custom_title: "Языки по коммитам",
   layout: "compact",
   langs_count: 6,
   card_width: 300,
