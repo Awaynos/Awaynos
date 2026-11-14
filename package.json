@@ -1,0 +1,11 @@
+{
+  "name": "awaynos-profile",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cards": "node scripts/cards.mjs"
+  },
+  "dependencies": {
+    "github-readme-stats": "https://github.com/anuraghazra/github-readme-stats/archive/54a7985aeefda00d5eadb55b80c17c7f976c37d2.tar.gz"
+  }
+}

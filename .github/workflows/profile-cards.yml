@@ -1,0 +1,48 @@
+name: Profile cards
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "profile-cards/**"
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+
+      - name: Generate cards
+        run: node scripts/cards.mjs
+        env:
+          # PROFILE_TOKEN is a PAT with repo + read:user, so private repos and
+          # private contributions are included. Without it the job still runs,
+          # but the language card only sees public repositories.
+          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
+          PROFILE_USER: ${{ github.repository_owner }}
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-cards
+          if git diff --cached --quiet; then
+            echo "Cards are up to date"
+            exit 0
+          fi
+          git commit -m "chore: update profile cards"
+          git push
