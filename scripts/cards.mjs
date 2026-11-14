@@ -186,7 +186,13 @@ let statsCard = renderStatsCard(
     rank,
   },
   {
-    theme: "bear",
+    // Catppuccin (Mocha) palette. The card keeps the old layout, only the
+    // colours change.
+    title_color: "cba6f7",
+    icon_color: "f5c2e7",
+    text_color: "cdd6f4",
+    bg_color: "1e1e2e",
+    ring_color: "cba6f7",
     show_icons: true,
     hide_border: true,
     include_all_commits: true,
@@ -201,7 +207,9 @@ for (const [label, short] of SHORT_LABELS) {
 }
 
 const languagesCard = renderTopLanguages(await languageCommits(user), {
-  theme: "bear",
+  title_color: "cba6f7",
+  text_color: "cdd6f4",
+  bg_color: "1e1e2e",
   hide_border: true,
   locale: "ru",
   custom_title: "Языки по коммитам",

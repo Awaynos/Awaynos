@@ -9,11 +9,11 @@
         aria-labelledby="descId"
       >
         <title id="titleId">&#1057;&#1090;&#1072;&#1090;&#1080;&#1089;&#1090;&#1080;&#1082;&#1072; GitHub, Rank: C</title>
-        <desc id="descId">Звёзды: 16, Всего коммитов  : 106, PR: 0, Issues: 1, Вклад в проекты: 7</desc>
+        <desc id="descId">Звёзды: 16, Всего коммитов  : 107, PR: 0, Issues: 1, Вклад в проекты: 8</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-            fill: #e03c8a;
+            fill: #cba6f7;
             animation: fadeInAnimation 0.8s ease-in-out forwards;
           }
           @supports(-moz-appearance: auto) {
@@ -22,7 +22,7 @@
           }
           
     .stat {
-      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #bcb28d;
+      font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #cdd6f4;
     }
     @supports(-moz-appearance: auto) {
       /* Selector detects Firefox */
@@ -33,7 +33,7 @@
       animation: fadeInAnimation 0.3s ease-in-out forwards;
     }
     .rank-text {
-      font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #bcb28d;
+      font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #cdd6f4;
       animation: scaleInAnimation 0.3s ease-in-out forwards;
     }
     .rank-percentile-header {
@@ -46,18 +46,18 @@
     .not_bold { font-weight: 400 }
     .bold { font-weight: 700 }
     .icon {
-      fill: #00AEFF;
+      fill: #f5c2e7;
       display: block;
     }
 
     .rank-circle-rim {
-      stroke: #e03c8a;
+      stroke: #cba6f7;
       fill: none;
       stroke-width: 6;
       opacity: 0.2;
     }
     .rank-circle {
-      stroke: #e03c8a;
+      stroke: #cba6f7;
       stroke-dasharray: 250;
       fill: none;
       stroke-width: 6;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 227.47810226553648;
+        stroke-dashoffset: 227.45113391500223;
       }
     }
   
@@ -111,7 +111,7 @@
           height="99%"
           stroke="#e4e2e2"
           width="466"
-          fill="#1f2023"
+          fill="#1e1e2e"
           stroke-opacity="0"
         />
 
@@ -177,7 +177,7 @@
         x="269.01"
         y="12.5"
         data-testid="commits"
-      >106</text>
+      >107</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -222,7 +222,7 @@
         x="269.01"
         y="12.5"
         data-testid="contribs"
-      >7</text>
+      >8</text>
     </g>
   </g>
     </svg>
