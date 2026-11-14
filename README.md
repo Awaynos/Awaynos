@@ -2,7 +2,7 @@
 
 # Awaynos
 
-**Разработчик полезных приложений и утилит для Windows и Telegram.**
+**Разработчик полезных приложений и утилит для Windows, Linux и Telegram.**
 
 Python · JavaScript · Desktop-утилиты · Автоматизация
 
@@ -26,9 +26,9 @@ Python · JavaScript · Desktop-утилиты · Автоматизация
 
 | | |
 |---|---|
-| **Направления** | Приложения и утилиты для Windows · инструменты для Telegram · сетевые решения · разработка сайтов · интеграция и обучение ИИ |
+| **Направления** | Приложения и утилиты для Windows и Linux · инструменты для Telegram · сетевые решения · разработка сайтов · интеграция и обучение ИИ |
 | **Основной стек** | Python (PySide6, Telethon) · JavaScript / Electron · TypeScript |
-| **Платформа** | Windows |
+| **Платформа** | Windows / Linux |
 | **Подход** | Прикладные инструменты под конкретную задачу: портативные, без лишних зависимостей |
 | **Лицензии** | Открытый исходный код (MIT, PolyForm Noncommercial) |
 
@@ -38,15 +38,16 @@ Python · JavaScript · Desktop-утилиты · Автоматизация
 
 ### QTranslate Remake
 
-**Переводчик для Windows в духе QTranslate 6.10** — переписан на Python с собственным интерфейсом.
+**Переводчик для Windows и Linux в духе QTranslate 6.10** — переписан на Python с собственным интерфейсом.
 
-`Python 3.11` · `PySide6 / Qt 6` · `1.0.0`
+`Python 3.11` · `PySide6 / Qt 6` · `1.1.0`
 
-- Глобальные горячие клавиши: `Ctrl+Q` — перевод выделенного, `Ctrl+1` — замена текста переводом на месте, `Ctrl+I` — распознавание текста с экрана (OCR), `Ctrl+E` — озвучка, `Ctrl+D` — словарь
+- Глобальные горячие клавиши: `Ctrl+Q` — перевод выделенного, `Ctrl+1` — замена текста переводом на месте, `Ctrl+I` — распознавание текста с экрана (OCR), `Ctrl+E` — озвучка, `Ctrl+D` — словарь. В Linux по умолчанию `Ctrl+Alt+Q/1/I`; на Wayland — бинды DE
 - Семь сервисов перевода одновременно: Google, Bing, DeepL, Yandex, Reverso, MyMemory, LibreTranslate
 - Перевод документов: TXT, SRT, VTT, DOCX, PDF — с сохранением таймингов и структуры
 - Проверка орфографии; собственный CSV-словарь (глоссарий, аббревиатуры) — данные не покидают машину
-- Интерфейс без системной рамки: 4 темы, 8 языков (ru/en/de/fr/zh/ja/kk/ka), история, трей
+- Linux: X11 и Wayland, AppImage, `tar.gz` и пакет для Arch; глобальные хоткеи на Wayland задаются биндами DE
+- Интерфейс без системной рамки: 4 темы, 13 языков (ru/en/de/fr/es/ko/pt-BR/zh/ja/kk/ka/be/pl), история, трей
 
 [**Сайт**](https://awaynos.github.io/QTranslate-R/) · [**Репозиторий**](https://github.com/Awaynos/QTranslate-R) · [**Релизы**](https://github.com/Awaynos/QTranslate-R/releases)
 
