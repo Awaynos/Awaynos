@@ -2,7 +2,9 @@ name: Profile cards
 
 on:
   schedule:
-    - cron: "0 3 * * *"
+    # Every six hours: the profile repo itself rarely changes, so a push does
+    # not always refresh the cards after work in other repositories.
+    - cron: "0 */6 * * *"
   workflow_dispatch:
   push:
     branches:

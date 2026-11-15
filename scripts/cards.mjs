@@ -56,10 +56,6 @@ query($login: String!) {
       contributionTypes: [COMMIT, PULL_REQUEST, ISSUE, REPOSITORY]) {
       totalCount
     }
-    contributionsCollection {
-      totalCommitContributions
-      contributionYears
-    }
     repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
       totalCount
       nodes {
@@ -72,43 +68,14 @@ query($login: String!) {
   }
 }`;
 
-// One contributionsCollection covers at most a year, so the years are aliased
-// into a single request and added up. This is the number GitHub prints next to
-// "Commits" in the profile's contribution panel (private repos included).
-async function allTimeCommits(contributionYears) {
-  if (contributionYears.length === 0) {
-    return 0;
-  }
-  const fields = contributionYears
-    .map(
-      (year, index) =>
-        `y${index}: contributionsCollection(from: "${year}-01-01T00:00:00Z", ` +
-        `to: "${year}-12-31T23:59:59Z") { totalCommitContributions }`,
-    )
-    .join("\n");
-  const data = await gql(
-    `query($login: String!) { user(login: $login) { ${fields} } }`,
-    { login },
-  );
-  return Object.values(data.user).reduce(
-    (sum, year) => sum + year.totalCommitContributions,
-    0,
-  );
-}
-
-// Top languages are counted by authored commits, not by file size: a single
-// config repository with generated QML files (ii-config, ~31 MB) otherwise
-// outweighs every source repository and reports QML as 86% of the profile.
-//
-// Each repository is attributed to its primary language, which is the same
-// coarse split GitHub's own "most commit language" card uses. One aliased
-// GraphQL request covers every repository.
-async function languageCommits(user) {
-  const repositories = user.repositories.nodes.filter(
-    (repository) => repository.primaryLanguage,
-  );
+// Commits the user authored on each repository's default branch, all time.
+// The contributions collection is not used here: its totalCommitContributions
+// counts public commits only, so private repositories disappeared from the
+// total (108 instead of the real number). One aliased request covers all repos.
+async function repoCommits(user) {
+  const repositories = user.repositories.nodes;
   if (repositories.length === 0) {
-    return {};
+    return [];
   }
 
   const aliases = repositories
@@ -128,18 +95,31 @@ async function languageCommits(user) {
     { uid: user.id },
   );
 
+  return repositories.map((repository, index) => ({
+    repository,
+    commits:
+      data?.[`r${index}`]?.defaultBranchRef?.target?.history?.totalCount ?? 0,
+  }));
+}
+
+// Top languages are counted by authored commits, not by file size: a single
+// config repository with generated QML files (ii-config, ~31 MB) otherwise
+// outweighs every source repository and reports QML as 86% of the profile.
+//
+// Each repository is attributed to its primary language, which is the same
+// coarse split GitHub's own "most commit language" card uses.
+function languageCommits(repoCommits) {
   const languages = {};
-  repositories.forEach((repository, index) => {
-    const { name, color } = repository.primaryLanguage;
-    const total =
-      data?.[`r${index}`]?.defaultBranchRef?.target?.history?.totalCount ?? 0;
-    if (total === 0) {
-      return;
+  for (const { repository, commits } of repoCommits) {
+    const language = repository.primaryLanguage;
+    if (!language || commits === 0) {
+      continue;
     }
+    const { name, color } = language;
     languages[name] ??= { name, color, size: 0, count: 0 };
-    languages[name].size += total;
+    languages[name].size += commits;
     languages[name].count += 1;
-  });
+  }
   return languages;
 }
 
@@ -157,9 +137,8 @@ const SHORT_LABELS = [
 const user = (await gql(PROFILE_QUERY, { login })).user;
 const repositories = user.repositories.nodes;
 const stars = repositories.reduce((sum, repo) => sum + repo.stargazerCount, 0);
-const commits = await allTimeCommits(
-  user.contributionsCollection.contributionYears,
-);
+const repoCommitData = await repoCommits(user);
+const commits = repoCommitData.reduce((sum, item) => sum + item.commits, 0);
 const prs = user.pullRequests.totalCount;
 const issues = user.issues.totalCount;
 const contributedTo = user.repositoriesContributedTo.totalCount;
@@ -206,7 +185,7 @@ for (const [label, short] of SHORT_LABELS) {
   statsCard = statsCard.replaceAll(label, short);
 }
 
-const languagesCard = renderTopLanguages(await languageCommits(user), {
+const languagesCard = renderTopLanguages(languageCommits(repoCommitData), {
   title_color: "cba6f7",
   text_color: "cdd6f4",
   bg_color: "1e1e2e",
