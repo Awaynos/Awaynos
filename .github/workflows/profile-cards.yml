@@ -2,9 +2,10 @@ name: Profile cards
 
 on:
   schedule:
-    # Every six hours: the profile repo itself rarely changes, so a push does
-    # not always refresh the cards after work in other repositories.
-    - cron: "0 */6 * * *"
+    # Hourly: GitHub's scheduler can skip or delay long gaps, and the profile
+    # repo itself rarely changes, so pushes alone cannot refresh the cards
+    # after work in other repositories.
+    - cron: "0 * * * *"
   workflow_dispatch:
   push:
     branches:

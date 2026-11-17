@@ -37,9 +37,12 @@ async function gql(query, variables) {
     },
     body: JSON.stringify({ query, variables }),
   });
-  const json = await response.json();
-  if (json.errors) {
-    throw new Error(JSON.stringify(json.errors));
+  const json = await response.json().catch(() => ({}));
+  if (!response.ok || json.errors || !json.data) {
+    const detail = json.errors
+      ? JSON.stringify(json.errors)
+      : json.message || `HTTP ${response.status}`;
+    throw new Error(`GitHub API: ${detail}`);
   }
   return json.data;
 }
@@ -56,6 +59,9 @@ query($login: String!) {
       contributionTypes: [COMMIT, PULL_REQUEST, ISSUE, REPOSITORY]) {
       totalCount
     }
+    contributionsCollection {
+      contributionYears
+    }
     repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
       totalCount
       nodes {
@@ -68,38 +74,53 @@ query($login: String!) {
   }
 }`;
 
-// Commits the user authored on each repository's default branch, all time.
-// The contributions collection is not used here: its totalCommitContributions
-// counts public commits only, so private repositories disappeared from the
-// total (108 instead of the real number). One aliased request covers all repos.
-async function repoCommits(user) {
-  const repositories = user.repositories.nodes;
-  if (repositories.length === 0) {
+// GitHub's own commit attribution, summed over every contribution year. This
+// is the number GitHub prints next to "Commits" in the profile's contribution
+// panel. Counting history(author: {id}) per repository undercounts commits
+// made with an email that is linked to the profile but not matched by that
+// filter (eft-map-overlay and QTranslate-R-old were 31 commits short), and
+// totalCommitContributions alone can hide private commits when the profile's
+// private-contribution setting is off.
+async function contributionCommits(user) {
+  const years = user.contributionsCollection.contributionYears;
+  if (years.length === 0) {
     return [];
   }
 
-  const aliases = repositories
-    .map((repository, index) => {
-      const [owner, name] = repository.nameWithOwner.split("/");
-      return (
-        `r${index}: repository(owner: ${JSON.stringify(owner)}, ` +
-        `name: ${JSON.stringify(name)}) { ` +
-        `defaultBranchRef { target { ... on Commit { ` +
-        `history(author: {id: $uid}) { totalCount } } } } }`
-      );
-    })
+  const aliases = years
+    .map(
+      (year, index) =>
+        `y${index}: contributionsCollection(from: "${year}-01-01T00:00:00Z", ` +
+        `to: "${year}-12-31T23:59:59Z") { ` +
+        `commitContributionsByRepository(maxRepositories: 100) { ` +
+        `repository { nameWithOwner primaryLanguage { name color } } ` +
+        `contributions { totalCount } } }`,
+    )
     .join("\n");
 
   const data = await gql(
-    `query($uid: ID!) { ${aliases} }`,
-    { uid: user.id },
+    `query($login: String!) { user(login: $login) { ${aliases} } }`,
+    { login },
   );
 
-  return repositories.map((repository, index) => ({
-    repository,
-    commits:
-      data?.[`r${index}`]?.defaultBranchRef?.target?.history?.totalCount ?? 0,
-  }));
+  const repositories = new Map();
+  for (const year of Object.values(data.user)) {
+    for (const entry of year.commitContributionsByRepository) {
+      if (!entry.repository) {
+        continue;
+      }
+      const key = entry.repository.nameWithOwner;
+      const current = repositories.get(key) ?? {
+        nameWithOwner: key,
+        commits: 0,
+        language: entry.repository.primaryLanguage,
+      };
+      current.commits += entry.contributions.totalCount;
+      current.language ??= entry.repository.primaryLanguage;
+      repositories.set(key, current);
+    }
+  }
+  return [...repositories.values()];
 }
 
 // Top languages are counted by authored commits, not by file size: a single
@@ -110,8 +131,7 @@ async function repoCommits(user) {
 // coarse split GitHub's own "most commit language" card uses.
 function languageCommits(repoCommits) {
   const languages = {};
-  for (const { repository, commits } of repoCommits) {
-    const language = repository.primaryLanguage;
+  for (const { language, commits } of repoCommits) {
     if (!language || commits === 0) {
       continue;
     }
@@ -137,7 +157,7 @@ const SHORT_LABELS = [
 const user = (await gql(PROFILE_QUERY, { login })).user;
 const repositories = user.repositories.nodes;
 const stars = repositories.reduce((sum, repo) => sum + repo.stargazerCount, 0);
-const repoCommitData = await repoCommits(user);
+const repoCommitData = await contributionCommits(user);
 const commits = repoCommitData.reduce((sum, item) => sum + item.commits, 0);
 const prs = user.pullRequests.totalCount;
 const issues = user.issues.totalCount;
