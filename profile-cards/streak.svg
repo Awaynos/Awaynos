@@ -14,9 +14,9 @@
   <text x="100" y="80" text-anchor="middle" class="num" fill="#cba6f7">242</text>
   <text x="100" y="116" text-anchor="middle" class="label" fill="#cba6f7">Общий вклад</text>
   <text x="100" y="146" text-anchor="middle" class="dates" fill="#bac2de">26 сент. 2024 г. - Сейчас</text>
-  <text x="300" y="80" text-anchor="middle" class="num" fill="#94e2d5">9</text>
+  <text x="300" y="80" text-anchor="middle" class="num" fill="#94e2d5">10</text>
   <text x="300" y="116" text-anchor="middle" class="label" fill="#94e2d5">Текущая серия</text>
-  <text x="300" y="146" text-anchor="middle" class="dates" fill="#bac2de">10 нояб. - 18 нояб.</text>
+  <text x="300" y="146" text-anchor="middle" class="dates" fill="#bac2de">10 нояб. - 19 нояб.</text>
   <text x="500" y="80" text-anchor="middle" class="num" fill="#cba6f7">13</text>
   <text x="500" y="116" text-anchor="middle" class="label" fill="#cba6f7">Самая длинная серия</text>
   <text x="500" y="146" text-anchor="middle" class="dates" fill="#bac2de">20 окт. - 1 нояб.</text>
