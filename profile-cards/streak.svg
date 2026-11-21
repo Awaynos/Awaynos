@@ -11,7 +11,7 @@
   <g transform="translate(288, 16) scale(1.5)" fill="#94e2d5">
     <path d="M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.3-2.29-2.834-4.434-.322.256-.63.579-.864.953-.432.696-.621 1.58-.046 2.73.473.943.114 1.5-.455 1.5-.638 0-1.18-.504-1.48-1.089a3.645 3.645 0 0 1-.346-1.323 3.9 3.9 0 0 0-.6.961c-.563.767-.895 1.636-.895 2.622 0 2.52 2.168 4.5 5 4.5z"/>
   </g>
-  <text x="100" y="80" text-anchor="middle" class="num" fill="#cba6f7">265</text>
+  <text x="100" y="80" text-anchor="middle" class="num" fill="#cba6f7">266</text>
   <text x="100" y="116" text-anchor="middle" class="label" fill="#cba6f7">Общий вклад</text>
   <text x="100" y="146" text-anchor="middle" class="dates" fill="#bac2de">26 сент. 2024 г. - Сейчас</text>
   <text x="300" y="80" text-anchor="middle" class="num" fill="#94e2d5">12</text>
