@@ -121,17 +121,6 @@
 
 Development and maintenance take time — I would be grateful for your support. It is completely optional: you can also help without money — report a bug, suggest an idea, or simply star a project.
 
-> **Important:** send funds **only on the specified network** — a transfer on another network may be lost permanently.
-
-| Coin | Network | Address |
-|:---|:---|:---|
-| <img src="assets/mobile/coin-btc-pill-m.png" width="180" alt="Bitcoin (BTC)"> | <img src="assets/mobile/net-segwit-pill-m.png" width="170" alt="Bitcoin (SegWit)"> | `bc1qfaylkgnwct052snamqmnxl3uk26xpt5jg344fs` |
-| <img src="assets/mobile/coin-eth-pill-m.png" width="180" alt="Ethereum (ETH)"> | <img src="assets/mobile/net-erc20-pill-m.png" width="120" alt="ERC-20"> | `0x44628629c1C6f8E8591d4f93735Ff6CD70DC8AfC` |
-| <img src="assets/mobile/coin-usdt-pill-m.png" width="180" alt="Tether (USDT)"> | <img src="assets/mobile/net-bep20-pill-m.png" width="150" alt="BEP-20 (BNB)"> | `0x44628629c1C6f8E8591d4f93735Ff6CD70DC8AfC` |
-| <img src="assets/mobile/coin-usdt-pill-m.png" width="180" alt="Tether (USDT)"> | <img src="assets/mobile/net-trc20-pill-m.png" width="155" alt="TRC-20 (Tron)"> | `TREypoEUmW7KDkbpSxDGsnCnA6SQ1e8SVk` |
-| <img src="assets/mobile/coin-sol-pill-m.png" width="180" alt="Solana (SOL / SPL)"> | <img src="assets/mobile/net-solana-pill-m.png" width="120" alt="Solana"> | `3sTNRxJqATsJsKWyM5dxi4HHMLEKbp8f8dGU4wJ1xmE9` |
-
-> **USDT:** BEP-20 (BNB) and TRC-20 (Tron) are different networks. The addresses are not interchangeable.
 
 <p align="center"><picture><source media="(max-width: 700px)" srcset="assets/mobile/section-contacts-en-m.png"><img src="assets/plates-en/section-contacts-en.png" width="100%" alt="Contacts"></picture></p>
 
